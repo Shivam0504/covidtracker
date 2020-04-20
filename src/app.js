@@ -1,42 +1,41 @@
 import React from 'react';
-import Cards from './components/cards/cards';
-import Graphs from './components/graphs/graphs';
-import Countries from './components/countries/countries';
-import {fetchData,fetchDailyData} from './api';
 
+
+import NavBar from './components/navbar/navbar';
+import { BrowserRouter as Router ,Route,Switch} from 'react-router-dom';
+
+//import {About,Country,Global,India} from './routes';
+import About from './routes/about'
+import Country from './routes/country'
+import Global from './routes/global'
+import India from './routes/india'
+//import indigo from '@material-ui/core/colors/indigo';
 
 class App extends React.Component{
     
-    state = {
-        data :{},
-        country : "",
-        countryDailyData:[]
-    }
-        
-    handleCountryChange= async(country)=>{
-        //console.log(country);
-        const countryData = await fetchData(country);
-        const countryDailyData = await fetchDailyData(country);
-        console.log(countryDailyData);
-        this.setState({data : countryData, country:country, countryDailyData: countryDailyData});
-    }
-    async componentDidMount(){
-        const data = await fetchData();
-        //console.log(data);
-        const countryDailyData = await fetchDailyData();
-        console.log(countryDailyData)
-        this.setState({data,countryDailyData});
-
-    }
 
     render(){
         return (
-            <div style={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column"}}>
-                <h1>Covid Tracker</h1>
-                <Cards data={this.state.data}/>
-                <Countries handleCountryChange={this.handleCountryChange}/>
-                <Graphs countryDailyData={this.state.countryDailyData}/>
+            <Router>
+            <div style={{backgroundColor:"#f5f5f5"}}>
+                <NavBar/>
+                <Switch>
+                <Route exact path="/">
+                <Global />
+                </Route>
+                <Route path="/about">
+                <About />
+                </Route>
+                <Route path="/country">
+                <Country />
+                </Route>
+                <Route path="/india">
+                <India />
+                </Route>
+                </Switch>
+                
             </div>
+            </Router>
         )
     }
 }

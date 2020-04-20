@@ -12,9 +12,11 @@ export const fetchData = async (country) =>{
         //console.log(Global);
         if(!country)
         {
+            //const res = await axios.get(url);
+            //console.log(res);
             const {data:{confirmed,recovered,deaths,lastUpdate}} = await axios.get(url);
             //const response = await axios.get(url);
-            console.log(lastUpdate);
+            //console.log(lastUpdate);
             return {cases:confirmed.value, recovered : recovered.value , deaths : deaths.value , updated : lastUpdate};
 
         }
@@ -34,9 +36,10 @@ export const fetchDailyData = async (country) =>{
         if(country)
         {
             const cDailyData= await axios.get(`https://api.covid19api.com/total/dayone/country/${country}`);
-            
+            console.log(cDailyData);
             const modifiedData = cDailyData.data.map((e)=>({
                 confirmed : e.Confirmed,
+                recovered : e.Recovered,
                 deaths : e.Deaths,
                 date : e.Date
              }));
@@ -44,8 +47,10 @@ export const fetchDailyData = async (country) =>{
             return modifiedData;
         }
         const {data}= await axios.get(`${url}/daily`);
+        console.log(data);
         const modifiedData = data.map((dailyData)=>({
             confirmed : dailyData.confirmed.total,
+            recovered : dailyData.recovered.total,
             deaths : dailyData.deaths.total,
             date : dailyData.reportDate
         }));
