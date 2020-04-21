@@ -16,7 +16,7 @@ class App extends React.Component{
 
     render(){
         return (
-            <Router basename={process.env.PUBLIC_URL}>>
+            <Router basename={process.env.PUBLIC_URL}>
             <div style={{backgroundColor:"#f5f5f5"}}>
                 <NavBar/>
                 <Switch>
