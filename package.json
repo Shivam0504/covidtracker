@@ -2,7 +2,7 @@
   "name": "covidtracker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Shivam0504.github.io/covidtracker",
+  "homepage": "https://Shivam0504.github.io/",
   "dependencies": {
     "@material-ui/core": "^4.9.10",
     "@material-ui/icons": "^4.9.1",
