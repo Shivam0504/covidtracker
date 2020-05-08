@@ -2,7 +2,7 @@ import React from 'react';
 
 
 import NavBar from './components/navbar/navbar';
-import { BrowserRouter as Router ,Route,Switch} from 'react-router-dom';
+import { BrowserRouter as Router ,Route,Switch, HashRouter} from 'react-router-dom';
 
 //import {About,Country,Global,India} from './routes';
 import About from './routes/about'
@@ -16,26 +16,26 @@ class App extends React.Component{
 
     render(){
         return (
-            <Router basename={process.env.PUBLIC_URL}>
+            <HashRouter>
             <div style={{backgroundColor:"#f5f5f5"}}>
                 <NavBar/>
                 <Switch>
                 <Route exact path="/">
                 <Global />
                 </Route>
-                <Route path="/about">
+                <Route exact path="/about">
                 <About />
                 </Route>
-                <Route path="/country">
+                <Route exact path="/country">
                 <Country />
                 </Route>
-                <Route path="/india">
+                <Route exact path="/india">
                 <India />
                 </Route>
                 </Switch>
                 
             </div>
-            </Router>
+            </HashRouter>
         )
     }
 }

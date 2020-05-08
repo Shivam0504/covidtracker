@@ -5,7 +5,7 @@ import {Line,Doughnut,Bar} from 'react-chartjs-2';
 //import TimelineIcon from '@material-ui/icons/Timeline';
 import {Card , CardContent} from '@material-ui/core';
 
-const Graphs = ({countryDailyData ,data :{cases , recovered , deaths , updated},country})=>{
+const Graphs = ({countryDailyData ,data :{cases , recovered , deaths},country})=>{
     
     console.log(country);
     const dailyConfirmedCases = [0];
@@ -19,7 +19,8 @@ const Graphs = ({countryDailyData ,data :{cases , recovered , deaths , updated},
         dailyRecoveredCases[i]=countryDailyData[i].recovered-countryDailyData[i-1].recovered<0?0:countryDailyData[i].recovered-countryDailyData[i-1].recovered;
         dailyDeaths[i]=(countryDailyData[i].deaths-countryDailyData[i-1].deaths)<0?0:(countryDailyData[i].deaths-countryDailyData[i-1].deaths);
     }
-    console.log(dailyRecoveredCases)
+    console.log(countryDailyData)
+    console.log("lol")
     const barGraph1 = (countryDailyData.length?
         (
             <div style={{backgroundColor:"#ffe0b2"}}>
@@ -285,7 +286,7 @@ const Graphs = ({countryDailyData ,data :{cases , recovered , deaths , updated},
             /></div>)
             :null
     );
-     if(countryDailyData.length){
+     if(cases){
     return (
         
        

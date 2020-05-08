@@ -34,10 +34,10 @@ export default function ButtonAppBar() {
             COVID TRACKER
           </Typography>
          
-          <Button  variant="contained" startIcon= {<HomeIcon/>} href="/">Home</Button>
-          <Button  variant="contained"  startIcon={<PublicIcon/>} href="/country">Country-wise stats</Button>
-          <Button  variant="contained"  startIcon={<PlaceIcon/>} color="default" href="/india">India</Button>
-          <Button   variant="contained" startIcon={<AccountCircleIcon/>} color="default" href="/about">About</Button>
+          <Button  variant="contained" startIcon= {<HomeIcon/>} href="#/">Home</Button>
+          <Button  variant="contained"  startIcon={<PublicIcon/>} href="#/country">Country-wise stats</Button>
+          <Button  variant="contained"  startIcon={<PlaceIcon/>} color="default" href="#/india">India</Button>
+          <Button   variant="contained" startIcon={<AccountCircleIcon/>} color="default" href="#/about">About</Button>
           
         </Toolbar>
       </AppBar>
